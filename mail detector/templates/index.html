@@ -1,5 +1,27 @@
 <!DOCTYPE html>
-<html><head><title>First Page</title></head>
+<html><head><title>First Page</title>
+<style>body {
+    text-align: center;
+}
+button{
+background-color: blue;
+color: white;
+}
+</style>
+</head>
 <body>
-    <h1>hello, world from with the help of templates</h1>
+    <h1>hello, lets detect the mail</h1>
+    <div>
+    <form method="post"action = '/predict'>
+        <textarea name="content" autocomplete='off' placeholder="Enter a mail" cols="40" rows="15">{{email}}</textarea>
+        <div>
+        <button type="submit">Button</button>
+        <a href="/">Reset</a>
+        </div>
+    </form>
+    {% if prediction == 1%}
+        <h1 style="color: red;">Spam</h1>
+    {% elif prediction == -1%}
+        <h2 style="color: blue;">Not a Spam</h2>
+    {% endif%}
 </body></html>
